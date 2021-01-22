@@ -1,0 +1,88 @@
+{
+  "name": "@spetushkou/expressjs",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Express.js API",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:spetushkov/expressjs.git"
+  },
+  "author": "Sergey Petushkou",
+  "homepage": "https://github.com/spetushkov/expressjs",
+  "bugs": {
+    "url": "https://github.com/spetushkov/expressjs/issues"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -f ./src/index.ts && yarn compile && barrelsby --config barrelsbyrc.json && rm -rf dist && yarn compile:build && yarn format:index",
+    "build:link": "sudo npm link",
+    "clean": "rm -rf node_modules && rm -rf coverage && rm -rf dist",
+    "compile": "tsc --noEmit",
+    "compile:build": "tsc",
+    "format": "prettier --write .",
+    "format:index": "prettier --write ./src/index.ts",
+    "git": "git add . && git commit -m :rocket: && git push -f",
+    "lint": "eslint '**/*.{js,ts}' --fix",
+    "prepare": "npm run build",
+    "setup": "yarn clean && yarn",
+    "setup:git": "sudo rm -rf .git && git init && git remote add origin git@github.com:spetushkov/expressjs.git",
+    "test": "jest --watch",
+    "test:all": "jest --watchAll=false",
+    "test:coverage": "jest --coverage",
+    "test:staged": "jest --onlyChanged"
+  },
+  "keywords": [
+    "Express.js"
+  ],
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "class-transformer": "^0.3.1",
+    "class-validator": "^0.12.2",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "http-status-codes": "^2.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.6",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.7",
+    "@types/express": "^4.17.8",
+    "@types/http-errors": "^1.8.0",
+    "@types/jest": "^26.0.14",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/mongoose": "^5.7.36",
+    "@types/morgan": "^1.9.1",
+    "@types/node": "^14.11.2",
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/parser": "^4.2.0",
+    "barrelsby": "^2.2.0",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
+    "prettier-plugin-organize-imports": "^1.1.1",
+    "prettier-plugin-package": "^1.0.0",
+    "typescript": "^4.0.3"
+  },
+  "types": "dist/index.d.ts",
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn compile && lint-staged && yarn test:staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --fix",
+    "*": "prettier --write"
+  }
+}
