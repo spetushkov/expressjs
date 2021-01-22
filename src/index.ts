@@ -20,7 +20,7 @@ export * from './auth/response/AuthData';
 export * from './auth/response/AuthResult';
 export * from './auth/role/DefaultRole';
 export * from './auth/role/Role';
-export * from './auth/role/RolesManager';
+export * from './auth/role/Roles';
 export * from './class/ClassTransformer';
 export * from './class/ClassValidator';
 export * from './crud/BaseCrudController';

@@ -1,11 +1,11 @@
 import { NextFunction, RequestHandler, Response } from 'express';
 import { PermissionManager } from '../../../auth/permisssion/PermissionManager';
-import { RolesManager } from '../../../auth/role/RolesManager';
+import { Roles } from '../../../auth/role/Roles';
 import { ServerException } from '../exception/ServerException';
 import { BaseRequest } from '../route/BaseRequest';
 
 export const AuthorizeUser = (
-  rolesManager: RolesManager,
+  rolesManager: Roles,
   permissionSchemaId: string,
   permission?: string,
 ): RequestHandler => (req: BaseRequest, res: Response, next: NextFunction) => {
