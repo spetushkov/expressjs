@@ -2,7 +2,7 @@ import { Role } from '../role/Role';
 
 export class PermissionManager {
   static hasPermission(
-    role: Role | null,
+    role: Role | undefined,
     permissionSchemaId: string,
     permission?: string,
   ): boolean {
