@@ -1,5 +1,5 @@
 import express, { NextFunction, Request, RequestHandler, Response, Router } from 'express';
-import { ApiEntity } from '../repository/ApiEntity';
+import { ApiEntity } from '../entity/ApiEntity';
 import { Route } from '../server/express/route/Route';
 import { BaseCrudController } from './BaseCrudController';
 import { CrudRoute } from './CrudRoute';

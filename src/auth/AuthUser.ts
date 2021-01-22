@@ -1,4 +1,4 @@
-import { ApiEntity } from '../repository/ApiEntity';
+import { ApiEntity } from '../entity/ApiEntity';
 
 export interface AuthUser extends ApiEntity {
   email: string;

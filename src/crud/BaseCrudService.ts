@@ -1,5 +1,5 @@
 import { ClassTransformer } from '../class/ClassTransformer';
-import { ApiEntity } from '../repository/ApiEntity';
+import { ApiEntity } from '../entity/ApiEntity';
 import { PageRequest } from '../repository/pagination/PageRequest';
 import { PageResult } from '../repository/pagination/PageResult';
 import { Repository } from '../repository/Repository';

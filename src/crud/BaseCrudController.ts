@@ -1,6 +1,6 @@
 import { Response } from 'express';
 import { ClassTransformer } from '../class/ClassTransformer';
-import { ApiEntity } from '../repository/ApiEntity';
+import { ApiEntity } from '../entity/ApiEntity';
 import { PageRequest } from '../repository/pagination/PageRequest';
 import { PageRequestOptions } from '../repository/pagination/PageRequestOptions';
 import { BaseResult } from '../response/BaseResult';

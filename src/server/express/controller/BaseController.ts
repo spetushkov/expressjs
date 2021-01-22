@@ -1,5 +1,5 @@
 import { ClassValidator } from '../../../class/ClassValidator';
-import { ApiEntity } from '../../../repository/ApiEntity';
+import { ApiEntity } from '../../../entity/ApiEntity';
 import { StatusCode } from '../../../response/StatusCode';
 import { ServerException } from '../exception/ServerException';
 
