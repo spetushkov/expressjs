@@ -5,11 +5,11 @@ import { BaseCrudController } from './BaseCrudController';
 import { CrudRoute } from './CrudRoute';
 
 export abstract class BaseCrudRoute<T extends ApiEntity> implements CrudRoute, Route {
-  private controller: BaseCrudController<T>;
+  protected controller: BaseCrudController<T>;
   protected router: Router;
 
-  constructor(constroller: BaseCrudController<T>) {
-    this.controller = constroller;
+  constructor(controller: BaseCrudController<T>) {
+    this.controller = controller;
     this.router = express.Router();
   }
 

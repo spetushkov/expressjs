@@ -24,12 +24,12 @@ export abstract class BaseMongoDbRepository<T> implements Repository<T> {
         .find(query)
         .limit(paginator.pageSizeLimit)
         .skip(paginator.getSkipCount())
-        .sort(sort)
-        .lean();
+        .sort(sort);
 
       paginator.pageSize = docs.length;
 
-      const entities = this.normalize(docs) as T[];
+      const docsObject = docs.map((doc) => doc.toObject());
+      const entities = this.normalize(docsObject) as T[];
       const result = new PageResult(entities, paginator);
       return Promise.resolve(result);
     } catch (error) {
@@ -40,17 +40,12 @@ export abstract class BaseMongoDbRepository<T> implements Repository<T> {
   async findById(id: string): Promise<T> {
     try {
       const doc = await this.mongooseModel.findById(id);
-      const docUpdated = await this.postFindById(doc);
-      const docObj = docUpdated ? docUpdated.toObject() : null;
+      const docObj = doc ? doc.toObject() : null;
       const entity = this.normalize(docObj) as T;
       return Promise.resolve(entity);
     } catch (error) {
       return Promise.reject(error);
     }
-  }
-
-  protected async postFindById(doc: Document | null): Promise<Document | null> {
-    return doc;
   }
 
   async save(entity: T): Promise<T> {

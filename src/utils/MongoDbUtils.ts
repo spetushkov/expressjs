@@ -1,7 +1,7 @@
 import { Document } from 'mongoose';
 
 export class MongoDbUtils {
-  static async exposeExternalRefs(doc: Document): Promise<Document> {
+  static async expose(doc: Document): Promise<Document> {
     try {
       const keys = doc.schema.statics.getForeignKeys();
       for (const key of keys) {

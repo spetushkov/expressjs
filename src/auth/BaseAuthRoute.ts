@@ -7,8 +7,8 @@ export abstract class BaseAuthRoute implements AuthRoute, Route {
   private controller: AuthController;
   private router: Router;
 
-  constructor(constroller: AuthController) {
-    this.controller = constroller;
+  constructor(controller: AuthController) {
+    this.controller = controller;
     this.router = express.Router();
   }
 
