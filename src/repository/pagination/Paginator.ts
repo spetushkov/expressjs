@@ -18,7 +18,7 @@ export class Paginator implements Paginateable {
     this.firstPage = 1;
     this.lastPage = this.totalPages;
     this.currentPage = this.getCurrentPage(currentPage, this.firstPage, this.lastPage);
-    this.previousPage = this.getPrivousPage(this.currentPage, this.firstPage);
+    this.previousPage = this.getPreviousPage(this.currentPage, this.firstPage);
     this.nextPage = this.getNextPage(this.currentPage, this.lastPage);
   }
 
@@ -41,7 +41,7 @@ export class Paginator implements Paginateable {
     return nextPage > lastPage ? null : nextPage;
   }
 
-  private getPrivousPage(currentPage: number, firstPage: number): number | null {
+  private getPreviousPage(currentPage: number, firstPage: number): number | null {
     const previousPage = currentPage - 1;
     return previousPage < firstPage ? null : previousPage;
   }
